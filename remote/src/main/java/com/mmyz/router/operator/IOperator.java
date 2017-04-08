@@ -5,7 +5,8 @@ import android.content.Context;
 /**
  * ==============================================
  * <p>
- * 类名：
+ * 类名：IOperator
+ * &nbsp 基本操作接口
  * <p>
  * 作者：M-Liu
  * <p>

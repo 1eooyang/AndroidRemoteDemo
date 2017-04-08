@@ -37,12 +37,16 @@ public class MainActivity extends AppCompatActivity {
         btnAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                Intent invoke = Remote.invoke(MainActivity.this, ActivityIntentOperator.PROTOCOL + IRemoteUrlConfig.LOGIN_REMOTE_URL);
+//                startActivity(invoke);
                 Remote.startActivity(
                         MainActivity.this,
                         ActivityIntentOperator.PROTOCOL + IRemoteUrlConfig.LOGIN_REMOTE_URL,
                         new BaseInvokeCallback<Intent>());
             }
         });
+
+
 
         btnProduct.setOnClickListener(new View.OnClickListener() {
             @Override

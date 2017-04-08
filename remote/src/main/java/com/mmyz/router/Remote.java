@@ -85,8 +85,13 @@ public class Remote {
         }
     }
 
+    /**
+     * Activity路由跳转
+     * @param context Context
+     * @param uri 路由地址
+     * @param invokeCallback  调用回调，处理Intent传值
+     */
     public static void startActivity(Context context,String uri,BaseInvokeCallback<Intent> invokeCallback){
-
         Intent intent = invoke(context, uri);
         intent = invokeCallback.invokeCallback(intent);
         if (intent != null){

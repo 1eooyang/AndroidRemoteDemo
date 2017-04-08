@@ -64,10 +64,6 @@ public class RemoteProcessor extends AbstractProcessor {
         mStaticRemoteUriList.clear();
         try {
             Set<? extends Element> modules = re.getElementsAnnotatedWith(Modules.class);
-//            mMessager.printMessage(Diagnostic.Kind.ERROR,elementsAnnotatedWith.toString());
-//            mMessager.printMessage(Diagnostic.Kind.NOTE,modules.toString());
-//            mMessager.printMessage(Diagnostic.Kind.NOTE,module.toString());
-
             if (modules != null && !modules.isEmpty()){
                 patchModulesClass(modules);
                 return true;
@@ -90,7 +86,6 @@ public class RemoteProcessor extends AbstractProcessor {
     private void processModule(RoundEnvironment re) {
 
         try {
-
             Set<? extends Element> staticElementSet = re.getElementsAnnotatedWith(StaticRemote.class);
             if (staticElementSet != null && !staticElementSet.isEmpty()) {
                 for (Element e :
@@ -104,7 +99,6 @@ public class RemoteProcessor extends AbstractProcessor {
             }
 
             Set<? extends Element> module = re.getElementsAnnotatedWith(Module.class);
-//            mMessager.printMessage(Diagnostic.Kind.NOTE,module.toString());
 
             patchModuleClass(module);
         }catch (Exception e) {
@@ -140,12 +134,6 @@ public class RemoteProcessor extends AbstractProcessor {
             String className = IRemoteConfig.PAGE_PREFIX+pageName;
 
             JavaFileObject file = mFiler.createSourceFile(className, next);
-
-//            mMessager.printMessage(Diagnostic.Kind.NOTE,module.toString());
-//            mMessager.printMessage(Diagnostic.Kind.NOTE,file.toString());
-//            mMessager.printMessage(Diagnostic.Kind.NOTE,next.toString());
-//            mMessager.printMessage(Diagnostic.Kind.NOTE,pageName);
-//            mMessager.printMessage(Diagnostic.Kind.NOTE,className);
 
             PrintWriter printWriter = new PrintWriter(file.openWriter());
             printWriter.println("package "+IRemoteConfig.PACKAGE_NAME +";");
@@ -194,7 +182,6 @@ public class RemoteProcessor extends AbstractProcessor {
             Modules modulesAnnotation = moduleTypeElement.getAnnotation(Modules.class);
             String[] value = modulesAnnotation.value();
 
-//            writer.println(" System.out.println(\"===========测试反射调用===\");");
             for (String item :
                     value) {
                 writer.println(IRemoteConfig.PACKAGE_NAME+"."+IRemoteConfig.PAGE_PREFIX+item+"."+IRemoteConfig.PAGE_METHOD_NAME +"();");

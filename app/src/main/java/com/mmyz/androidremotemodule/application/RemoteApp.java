@@ -1,10 +1,15 @@
 package com.mmyz.androidremotemodule.application;
 
 import android.app.Application;
+import android.content.Intent;
 
 import com.mmyz.Modules;
 import com.mmyz.RemoteRegister;
+import com.mmyz.account.LoginActivity;
 import com.mmyz.common.IRemoteModuleConfig;
+import com.mmyz.common.IRemoteUrlConfig;
+import com.mmyz.router.Remote;
+import com.mmyz.router.operator.ActivityIntentOperator;
 
 /**
  * ==============================================
@@ -23,6 +28,7 @@ import com.mmyz.common.IRemoteModuleConfig;
           IRemoteModuleConfig.ACCOUNT_MODULE,
           IRemoteModuleConfig.PRODUCT_MODULE,
           IRemoteModuleConfig.ORDER_MODULE})
+
 public class RemoteApp extends Application {
     @Override
     public void onCreate() {
@@ -31,6 +37,7 @@ public class RemoteApp extends Application {
     }
 
     private void initRemote() {
+//        Remote.putRemoteUri(ActivityIntentOperator.PROTOCOL+ IRemoteUrlConfig.LOGIN_REMOTE_URL, LoginActivity.class);
         RemoteRegister.register();
 //        try {
 //            Remote.putRemoteUriDefaultPattern(ActivityIntentOperator.PROTOCOL+ LoginActivity.REMOTE_URL);
