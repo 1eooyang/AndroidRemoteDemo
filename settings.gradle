@@ -1,0 +1,1 @@
+include ':app', ':account', ':order', ':product', ':product', ':remoteannotation', ':remote', ':commonRes', ':remotecompiler'

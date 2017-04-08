@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp"
+    tools:context="com.mmyz.androidremotemodule.MainActivity">
+
+    <TextView
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="32sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="App主界面" />
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+    <Button
+        android:id="@+id/btn_account"
+        android:text="登录"
+        android:textColor="@android:color/white"
+        android:background="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+    <Button
+        android:id="@+id/btn_product"
+        android:text="产品"
+        android:textColor="@android:color/white"
+        android:background="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>
