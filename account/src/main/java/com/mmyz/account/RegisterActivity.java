@@ -12,9 +12,9 @@ import android.widget.Toast;
 
 import com.mmyz.Module;
 import com.mmyz.StaticRemote;
-import com.mmyz.common.IRemoteModuleConfig;
-import com.mmyz.common.IRemoteUrlConfig;
-import com.mmyz.common.ISharedPreferencesConfig;
+import com.mmyz.common.RemoteModuleConfig;
+import com.mmyz.common.RemoteUrlConfig;
+import com.mmyz.common.SharedPreferencesConfig;
 import com.mmyz.common.utils.SharedPreferencesUtil;
 import com.mmyz.router.Remote;
 import com.mmyz.router.callback.BaseInvokeCallback;
@@ -33,8 +33,8 @@ import com.mmyz.router.operator.ActivityIntentOperator;
  * <p>
  * ==============================================
  */
-@Module(IRemoteModuleConfig.ACCOUNT_MODULE)
-@StaticRemote(ActivityIntentOperator.PROTOCOL+ IRemoteUrlConfig.REGISTER_REMOTE_URL)
+@Module(RemoteModuleConfig.ACCOUNT_MODULE)
+@StaticRemote(ActivityIntentOperator.PROTOCOL+ RemoteUrlConfig.REGISTER_REMOTE_URL)
 public class RegisterActivity extends AppCompatActivity {
     Button btnRegister;
     private EditText etUserName;
@@ -56,20 +56,20 @@ public class RegisterActivity extends AppCompatActivity {
                 if (checkInput()){
                     SharedPreferencesUtil.saveString(
                             RegisterActivity.this,
-                            usernameStr+ ISharedPreferencesConfig.USER_NAME,
+                            usernameStr+ SharedPreferencesConfig.USER_NAME,
                             usernameStr);
                     SharedPreferencesUtil.saveString(
                             RegisterActivity.this,
-                            passwordStr+ ISharedPreferencesConfig.PASS_WORD,
+                            passwordStr+ SharedPreferencesConfig.PASS_WORD,
                             passwordStr);
                     SharedPreferencesUtil.saveString(
                             RegisterActivity.this,
-                            ISharedPreferencesConfig.IS_LOGIN,
+                            SharedPreferencesConfig.IS_LOGIN,
                             "loginSuccess");
                     showToast("注册成功");
                     Remote.startActivity(
                             RegisterActivity.this,
-                            ActivityIntentOperator.PROTOCOL+IRemoteUrlConfig.PRODUCT_REMOTE_URL,
+                            ActivityIntentOperator.PROTOCOL+ RemoteUrlConfig.PRODUCT_REMOTE_URL,
                             new BaseInvokeCallback<Intent>());
                     finish();
                 }

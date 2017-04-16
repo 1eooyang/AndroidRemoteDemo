@@ -1,15 +1,10 @@
 package com.mmyz.androidremotemodule.application;
 
 import android.app.Application;
-import android.content.Intent;
 
 import com.mmyz.Modules;
 import com.mmyz.RemoteRegister;
-import com.mmyz.account.LoginActivity;
-import com.mmyz.common.IRemoteModuleConfig;
-import com.mmyz.common.IRemoteUrlConfig;
-import com.mmyz.router.Remote;
-import com.mmyz.router.operator.ActivityIntentOperator;
+import com.mmyz.common.RemoteModuleConfig;
 
 /**
  * ==============================================
@@ -25,9 +20,9 @@ import com.mmyz.router.operator.ActivityIntentOperator;
  * ==============================================
  */
 @Modules({
-          IRemoteModuleConfig.ACCOUNT_MODULE,
-          IRemoteModuleConfig.PRODUCT_MODULE,
-          IRemoteModuleConfig.ORDER_MODULE})
+          RemoteModuleConfig.ACCOUNT_MODULE,
+          RemoteModuleConfig.PRODUCT_MODULE,
+          RemoteModuleConfig.ORDER_MODULE})
 
 public class RemoteApp extends Application {
     @Override

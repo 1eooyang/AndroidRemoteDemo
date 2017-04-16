@@ -27,7 +27,6 @@ public class RemoteProcessor extends AbstractProcessor {
     private Filer mFiler;
     private Messager mMessager;
 
-
     private List<String> mStaticRemoteUriList = new ArrayList<>();
 
     @Override
@@ -59,6 +58,11 @@ public class RemoteProcessor extends AbstractProcessor {
         return types;
     }
 
+    /**
+     * @param set
+     * @param re
+     * @return
+     */
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment re) {
         mStaticRemoteUriList.clear();
@@ -76,10 +80,6 @@ public class RemoteProcessor extends AbstractProcessor {
         return true;
     }
 
-    /**
-     *
-     * @param re
-     */
     private void processModule(RoundEnvironment re) {
 
         try {
@@ -126,16 +126,16 @@ public class RemoteProcessor extends AbstractProcessor {
             Module annotation = next.getAnnotation(Module.class);
 
             String pageName = annotation.value();
-            String className = IRemoteConfig.PAGE_PREFIX+pageName;
+            String className = Config.PAGE_PREFIX+pageName;
 
             JavaFileObject file = mFiler.createSourceFile(className, next);
 
             PrintWriter printWriter = new PrintWriter(file.openWriter());
-            printWriter.println("package "+IRemoteConfig.PACKAGE_NAME +";");
-            printWriter.println("import "+IRemoteConfig.PACKAGE_NAME+".Remote;");
-            printWriter.println("import "+IRemoteConfig.PACKAGE_NAME+".exception.NotFoundClassException;");
+            printWriter.println("package "+ Config.PACKAGE_NAME +";");
+            printWriter.println("import "+ Config.PACKAGE_NAME+".Remote;");
+            printWriter.println("import "+ Config.PACKAGE_NAME+".exception.NotFoundClassException;");
             printWriter.println("public class "+className +" {");
-            printWriter.println("public static void "+IRemoteConfig.PAGE_METHOD_NAME+"(){");
+            printWriter.println("public static void "+ Config.PAGE_METHOD_NAME+"(){");
 
             printWriter.println("try{");
             for (String uri :
@@ -169,17 +169,17 @@ public class RemoteProcessor extends AbstractProcessor {
 
         try {
             TypeElement moduleTypeElement= (TypeElement) modules.iterator().next();
-            JavaFileObject file = mFiler.createSourceFile(IRemoteConfig.CLASS_NAME, moduleTypeElement);
+            JavaFileObject file = mFiler.createSourceFile(Config.CLASS_NAME, moduleTypeElement);
             PrintWriter writer = new PrintWriter(file.openWriter());
-            writer.println("package "+IRemoteConfig.PACKAGE_NAME+";");
-            writer.println("public class "+IRemoteConfig.CLASS_NAME +" {");
-            writer.println("public static void "+IRemoteConfig.METHOD_NAME +" () {");
+            writer.println("package "+ Config.PACKAGE_NAME+";");
+            writer.println("public class "+ Config.CLASS_NAME +" {");
+            writer.println("public static void "+ Config.METHOD_NAME +" () {");
             Modules modulesAnnotation = moduleTypeElement.getAnnotation(Modules.class);
             String[] value = modulesAnnotation.value();
 
             for (String item :
                     value) {
-                writer.println(IRemoteConfig.PACKAGE_NAME+"."+IRemoteConfig.PAGE_PREFIX+item+"."+IRemoteConfig.PAGE_METHOD_NAME +"();");
+                writer.println(Config.PACKAGE_NAME+"."+ Config.PAGE_PREFIX+item+"."+ Config.PAGE_METHOD_NAME +"();");
             }
             writer.println("}");
             writer.println("}");

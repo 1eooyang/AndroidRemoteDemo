@@ -14,8 +14,8 @@ import android.widget.Toast;
 
 import com.mmyz.Module;
 import com.mmyz.StaticRemote;
-import com.mmyz.common.IRemoteModuleConfig;
-import com.mmyz.common.IRemoteUrlConfig;
+import com.mmyz.common.RemoteModuleConfig;
+import com.mmyz.common.RemoteUrlConfig;
 import com.mmyz.router.Remote;
 import com.mmyz.router.callback.BaseInvokeCallback;
 import com.mmyz.router.operator.ActivityIntentOperator;
@@ -34,8 +34,8 @@ import com.mmyz.router.operator.ActivityIntentOperator;
  * ==============================================
  */
 
-@Module(IRemoteModuleConfig.ORDER_MODULE)
-@StaticRemote(ActivityIntentOperator.PROTOCOL+ IRemoteUrlConfig.ORDER_REMOTE_URL)
+@Module(RemoteModuleConfig.ORDER_MODULE)
+@StaticRemote(ActivityIntentOperator.PROTOCOL+ RemoteUrlConfig.ORDER_REMOTE_URL)
 public class FillOrderActivity extends AppCompatActivity {
 
     private TextView tvProductTitle;
@@ -93,7 +93,7 @@ public class FillOrderActivity extends AppCompatActivity {
                 showToast("下单成功");
                 Remote.startActivity(
                         FillOrderActivity.this,
-                        ActivityIntentOperator.PROTOCOL+IRemoteUrlConfig.MAIN_REMOTE_URL,
+                        ActivityIntentOperator.PROTOCOL+ RemoteUrlConfig.MAIN_REMOTE_URL,
                         new BaseInvokeCallback<Intent>()
                 );
                 finish();

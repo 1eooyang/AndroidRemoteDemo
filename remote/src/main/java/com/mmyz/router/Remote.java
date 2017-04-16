@@ -51,7 +51,6 @@ public class Remote {
         String[] infos = pattern.split(uri);
         String protocol = infos[0];
         String page = infos[1];
-        System.out.println("==============="+page);
         try {
             putRemoteUri(uri,Class.forName(page));
         } catch (ClassNotFoundException e) {

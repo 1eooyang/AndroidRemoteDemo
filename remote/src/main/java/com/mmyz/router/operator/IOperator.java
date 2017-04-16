@@ -19,14 +19,14 @@ import android.content.Context;
 
 public interface IOperator<T,K> {
     /**
-     * 添加路由路线
+     * 添加路由地址
      * @param uri 路由地址
      * @param clazz 路由类型
      */
     void put(String uri,Class<T> clazz);
 
     /**
-     * 执行路由路线
+     * 执行/唤醒路由地址
      * @param context Context
      * @param uri 路由地址
      * @return {@link BaseIntentOperator#invoke(Context, String)}

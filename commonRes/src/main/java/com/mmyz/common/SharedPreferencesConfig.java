@@ -3,7 +3,7 @@ package com.mmyz.common;
 /**
  * ==============================================
  * <p>
- * 类名：IRemoteModuleConfig
+ * 类名：SharedPreferencesConfig
  * <p>
  * 作者：M-Liu
  * <p>
@@ -14,9 +14,8 @@ package com.mmyz.common;
  * ==============================================
  */
 
-public interface IRemoteModuleConfig {
-    String APP_MODULE = "AppModule";
-    String ACCOUNT_MODULE = "AccountModule";
-    String PRODUCT_MODULE = "ProductModule";
-    String ORDER_MODULE = "OrderModule";
+public class SharedPreferencesConfig {
+    public static final String USER_NAME = "userName";
+    public static final String PASS_WORD = "password";
+    public static final String IS_LOGIN = "isLogin";
 }
