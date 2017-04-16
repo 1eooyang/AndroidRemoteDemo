@@ -73,9 +73,6 @@ public class RemoteProcessor extends AbstractProcessor {
         }catch (Exception e){
             mMessager.printMessage(Diagnostic.Kind.NOTE,e.getMessage());
         }
-
-
-
         return true;
     }
 
@@ -104,8 +101,6 @@ public class RemoteProcessor extends AbstractProcessor {
         }catch (Exception e) {
             mMessager.printMessage(Diagnostic.Kind.NOTE,e.getMessage());
         }
-
-
     }
 
     /**

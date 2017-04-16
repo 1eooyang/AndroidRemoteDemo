@@ -47,7 +47,5 @@ dependencies {
     //product
     compile project(':product')
 
-    //remote
-    compile project(':remote')
 
 }
